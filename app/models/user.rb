@@ -3,6 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :subscriptions, dependent: :destroy
+  has_many :lists, dependent: :destroy
 
   after_create :create_default_subscription
 
