@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :list do
-    name { "MyString" }
-    user { nil }
+    name { Faker::Space.nasa_space_craft }
+    user
   end
 end

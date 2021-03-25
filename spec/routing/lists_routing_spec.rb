@@ -14,21 +14,8 @@ RSpec.describe ListsController, type: :routing do
       expect(get: "/lists/1").to route_to("lists#show", id: "1")
     end
 
-    it "routes to #edit" do
-      expect(get: "/lists/1/edit").to route_to("lists#edit", id: "1")
-    end
-
-
     it "routes to #create" do
       expect(post: "/lists").to route_to("lists#create")
-    end
-
-    it "routes to #update via PUT" do
-      expect(put: "/lists/1").to route_to("lists#update", id: "1")
-    end
-
-    it "routes to #update via PATCH" do
-      expect(patch: "/lists/1").to route_to("lists#update", id: "1")
     end
 
     it "routes to #destroy" do
