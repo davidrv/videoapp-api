@@ -4,7 +4,9 @@ class Plan
     name: "Free",
     price: 0,
     currency: "EUR",
-    interval: 'year'
+    interval: 'year',
+    max_lists: 1,
+    max_items: 10
   })
 
   STANDARD = OpenStruct.new({
@@ -12,7 +14,9 @@ class Plan
     name: "Standard",
     price: 395,
     currency: "EUR",
-    interval: 'year'
+    interval: 'year',
+    max_lists: 10,
+    max_items: 1_000
   })
 
   MECENAS = OpenStruct.new({
@@ -20,7 +24,9 @@ class Plan
     name: "Mecenas",
     price: 3995,
     currency: "EUR",
-    interval: 'year'
+    interval: 'year',
+    max_lists: 9_999,
+    max_items: 999_999
   })
 
   def self.active
