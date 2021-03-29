@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>List:</strong>
+  <%= @item.list_id %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @item.available %>
+</p>
+
+<p>
+  <strong>Video:</strong>
+  <%= @item.video_id %>
+</p>
+
+<p>
+  <strong>Provider:</strong>
+  <%= @item.provider %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @item.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @item.duration %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @item.date %>
+</p>
+
+<p>
+  <strong>Thumbnail small:</strong>
+  <%= @item.thumbnail_small %>
+</p>
+
+<p>
+  <strong>Thumbnail medium:</strong>
+  <%= @item.thumbnail_medium %>
+</p>
+
+<p>
+  <strong>Thumbnail large:</strong>
+  <%= @item.thumbnail_large %>
+</p>
+
+<p>
+  <strong>Embed url:</strong>
+  <%= @item.embed_url %>
+</p>
+
+<p>
+  <strong>Embed code:</strong>
+  <%= @item.embed_code %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @item.author %>
+</p>
+
+<p>
+  <strong>Author thumbnail:</strong>
+  <%= @item.author_thumbnail %>
+</p>
+
+<p>
+  <strong>Author url:</strong>
+  <%= @item.author_url %>
+</p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @item.keywords %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

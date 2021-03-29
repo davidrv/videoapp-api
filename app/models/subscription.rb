@@ -19,7 +19,10 @@ class Subscription < ApplicationRecord
   private
 
   def set_default_values
-    self.plan_id              = "FREE"
+    unless plan_id.present?
+      self.plan_id = "FREE"
+    end
+
     self.status               = "ACTIVE"
     self.current_period_start = DateTime.now
     self.current_period_end   = DateTime.now + 1.year

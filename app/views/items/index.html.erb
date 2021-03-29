@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>List</th>
+      <th>Available</th>
+      <th>Video</th>
+      <th>Provider</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Duration</th>
+      <th>Date</th>
+      <th>Thumbnail small</th>
+      <th>Thumbnail medium</th>
+      <th>Thumbnail large</th>
+      <th>Embed url</th>
+      <th>Embed code</th>
+      <th>Author</th>
+      <th>Author thumbnail</th>
+      <th>Author url</th>
+      <th>Keywords</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.list_id %></td>
+        <td><%= item.available %></td>
+        <td><%= item.video_id %></td>
+        <td><%= item.provider %></td>
+        <td><%= item.title %></td>
+        <td><%= item.description %></td>
+        <td><%= item.duration %></td>
+        <td><%= item.date %></td>
+        <td><%= item.thumbnail_small %></td>
+        <td><%= item.thumbnail_medium %></td>
+        <td><%= item.thumbnail_large %></td>
+        <td><%= item.embed_url %></td>
+        <td><%= item.embed_code %></td>
+        <td><%= item.author %></td>
+        <td><%= item.author_thumbnail %></td>
+        <td><%= item.author_url %></td>
+        <td><%= item.keywords %></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item', new_item_path %>
