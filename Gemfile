@@ -1,3 +1,6 @@
+def next?
+  File.basename(__FILE__) == "Gemfile.next"
+end
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
@@ -5,7 +8,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
-gem 'rails', '~> 6.1.3'
+gem 'rails', '~> 6.1.3.1'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
@@ -19,6 +22,7 @@ gem 'money-rails', '~> 1.14'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'pry-byebug', '~> 3.9'
 gem 'video_info', '~> 3.0', '>= 3.0.1'
+gem 'next_rails', '~> 1.0', '>= 1.0.4'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
