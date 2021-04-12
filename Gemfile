@@ -18,6 +18,7 @@ gem 'rubocop-rails', require: false
 gem 'money-rails', '~> 1.14'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'pry-byebug', '~> 3.9'
+gem 'video_info', '~> 3.0', '>= 3.0.1'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

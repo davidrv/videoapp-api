@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :items
-  resources :lists, except: [:edit, :update]
+  resources :lists, except: [:edit, :update] do
+    resources :items, except: [:edit, :update]
+  end
   devise_for :users
   get 'home/index'
   root to: "home#index"

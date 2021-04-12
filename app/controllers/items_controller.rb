@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
+  before_action :set_list
   before_action :set_item, only: %i[ show edit update destroy ]
 
   # GET /items or /items.json
   def index
-    @items = Item.all
+    @items = @list.items.all
   end
 
   # GET /items/1 or /items/1.json
@@ -12,36 +13,20 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    @item = Item.new
-  end
-
-  # GET /items/1/edit
-  def edit
+    @item = @list.items.new
   end
 
   # POST /items or /items.json
   def create
-    @item = Item.new(item_params)
+    operation = Items::Create.call(list: @list, url: item_params[:url])
+    @item     = operation[:model]
 
     respond_to do |format|
-      if @item.save
+      if operation[:success?]
         format.html { redirect_to @item, notice: "Item was successfully created." }
-        format.json { render :show, status: :created, location: @item }
+        format.json { render :show, status: :created, location: @item}
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /items/1 or /items/1.json
-  def update
-    respond_to do |format|
-      if @item.update(item_params)
-        format.html { redirect_to @item, notice: "Item was successfully updated." }
-        format.json { render :show, status: :ok, location: @item }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
@@ -51,7 +36,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: "Item was successfully destroyed." }
+      format.html { redirect_to list_items_url(@list), notice: "Item was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -59,11 +44,15 @@ class ItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
-      @item = Item.find(params[:id])
+      @item = @list.items.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:list_id, :available, :video_id, :provider, :title, :description, :duration, :date, :thumbnail_small, :thumbnail_medium, :thumbnail_large, :embed_url, :embed_code, :author, :author_thumbnail, :author_url, :keywords)
+      params.permit(:list_id, :url)
+    end
+
+    def set_list
+      @list = current_user.lists.find(params[:list_id])
     end
 end

@@ -15,7 +15,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.string :embed_url
       t.text :embed_code
       t.string :author
-      t.string :rauthor_thumbnail
+      t.string :author_thumbnail
       t.string :author_url
       t.text :keywords
       t.string :url

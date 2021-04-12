@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_03_26_085033) do
     t.string "embed_url"
     t.text "embed_code"
     t.string "author"
-    t.string "rauthor_thumbnail"
+    t.string "author_thumbnail"
     t.string "author_url"
     t.text "keywords"
     t.string "url"

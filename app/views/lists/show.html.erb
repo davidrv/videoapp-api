@@ -10,3 +10,4 @@
 
 <%= link_to 'Delete', @list, method: :delete, data: { confirm: "Sure?" } %>
 <%= link_to 'Back', root_path %>
+<%= link_to 'New item', new_list_item_path(@list) %>
