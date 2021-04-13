@@ -1,33 +1,24 @@
 module Items
-  class Create < ::BaseService
-    attr_reader :list, :url, :model
+  class Build
+    attr_reader :list, :url
 
     def initialize(list:, url:)
       @list  = list
       @url   = url
-      @model = list.items.new
 
       raise "Video URL required" unless url.present?
     end
 
     def call
-      @model.attributes = get_video_info
-      @model.url        = url
-
-      if @model.save
-        @result = true
-      else
-        @errors = model.errors
-      end
-
-      respond!
+      item     = list.items.new(video_info)
+      item.url = url
+      item
     end
 
     private
 
-    def get_video_info
+    def video_info
       video = VideoInfo.new(url)
-
       sanitize_video_info(video)
     end
 

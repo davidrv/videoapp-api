@@ -1,17 +1,15 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Items</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Thumbnail small</th>
       <th>Available</th>
       <th>Video</th>
       <th>Provider</th>
       <th>Title</th>
       <th>Duration</th>
       <th>Date</th>
-      <th>Thumbnail small</th>
       <th>Embed url</th>
       <th>Author</th>
       <th colspan="2"></th>
@@ -21,7 +19,6 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.id %></td>
         <td><%= image_tag item.thumbnail_small %></td>
         <td><%= item.available %></td>
         <td><%= item.video_id %></td>
