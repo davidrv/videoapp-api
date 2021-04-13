@@ -47,14 +47,6 @@ ActiveRecord::Schema.define(version: 2021_03_26_085033) do
     t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
-  create_table "plans", force: :cascade do |t|
-    t.integer "price_cents", default: 0, null: false
-    t.string "price_currency", default: "EUR", null: false
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "subscriptions", force: :cascade do |t|
     t.string "plan_id", null: false
     t.bigint "user_id", null: false
