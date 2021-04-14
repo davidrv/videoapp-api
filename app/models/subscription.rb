@@ -2,7 +2,7 @@ class Subscription < ApplicationRecord
   belongs_to :user
 
   validates :user_id, presence: true
-  validates :plan_id, presence: true, inclusion: { in: Plan.active }
+  validates :plan_id, presence: true, inclusion: { in: Plan.all.map(&:id) }
   validates :current_period_start, presence: true
   validates :current_period_end, presence: true
   validates :amount_cents, presence: true

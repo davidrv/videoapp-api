@@ -5,8 +5,8 @@ class Plan
     price: 0,
     currency: "EUR",
     interval: 'year',
-    max_lists: 1,
-    max_items: 10
+    max_lists: 3,
+    max_items: 15
   })
 
   STANDARD = OpenStruct.new({
@@ -29,7 +29,21 @@ class Plan
     max_items: 999_999
   })
 
-  def self.active
-    %w(FREE STANDARD MECENAS)
+  def self.all
+    [FREE, STANDARD, MECENAS]
+  end
+
+  # TODO: create a dynamic finder
+  def self.find(id)
+    case id
+    when 'FREE'
+      Plan::FREE
+    when 'STANDARD'
+      Plan::STANDARD
+    when 'MECENAS'
+      Plan::MECENAS
+    else
+      raise 'Invalid Plan'
+    end
   end
 end
