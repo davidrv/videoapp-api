@@ -10,7 +10,7 @@ FactoryBot.define do
     title { Faker::Movie.title }
     description { Faker::Lorem.paragraph(sentence_count: 5) }
     duration { rand(3_600) }
-    date { Faker::Date.between(from: 2.years.ago, to: Date.today) }
+    date { Faker::Date.between(from: 2.years.ago, to: Time.zone.today) }
     thumbnail_small { 'https://file-examples-com.github.io/uploads/2017/10/file_example_JPG_100kB.jpg' }
     thumbnail_medium { 'https://file-examples-com.github.io/uploads/2017/10/file_example_JPG_500kB.jpg' }
     thumbnail_large { 'https://file-examples-com.github.io/uploads/2017/10/file_example_JPG_1MB.jpg' }

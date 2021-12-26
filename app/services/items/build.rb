@@ -24,6 +24,7 @@ module Items
       sanitize_video_info(video)
     end
 
+    # rubocop:disable Metrics/MethodLength
     def sanitize_video_info(video)
       {
         available: video.available?,
@@ -44,5 +45,6 @@ module Items
         keywords: video.keywords
       }
     end
+    # rubocop:enable Metrics/MethodLength
   end
 end
