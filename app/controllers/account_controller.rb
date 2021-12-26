@@ -7,7 +7,7 @@ class AccountController < ApplicationController
     plan = Plan.find(upgrade_params[:id])
 
     desactivate_existing_subscriptions
-    create_new_subcription(plan)
+    create_new_subscription(plan)
 
     redirect_to edit_user_registration_url, notice: 'Upgrade completed!'
   end
