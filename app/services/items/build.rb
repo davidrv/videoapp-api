@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Items
   class Build
     attr_reader :list, :url
@@ -6,7 +8,7 @@ module Items
       @list  = list
       @url   = url
 
-      raise "Video URL required" unless url.present?
+      raise 'Video URL required' if url.blank?
     end
 
     def call

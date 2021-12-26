@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Subscription < ApplicationRecord
   belongs_to :user
 
@@ -19,15 +21,14 @@ class Subscription < ApplicationRecord
   private
 
   def set_default_values
-    unless plan_id.present?
-      self.plan_id = "FREE"
-    end
+    self.plan_id = 'FREE' if plan_id.blank?
 
-    self.status               = "ACTIVE"
+    self.status               = 'ACTIVE'
     self.current_period_start = DateTime.now
     self.current_period_end   = DateTime.now + 1.year
 
     return unless plan
+
     self.amount = Money.new(plan.price, plan.currency)
   end
 end

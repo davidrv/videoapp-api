@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
@@ -5,14 +7,14 @@ RSpec.describe Item, type: :model do
 
   it { is_expected.to be_valid }
 
-  describe "validations" do
+  describe 'validations' do
     let(:user) { list.user }
 
-    describe "#max_items" do
+    describe '#max_items' do
       let(:list) { item.list }
 
       before do
-        user.plan.max_items.times do |n|
+        user.plan.max_items.times do |_n|
           FactoryBot.create(:item, list: list)
         end
       end

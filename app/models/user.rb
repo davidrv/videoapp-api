@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :trackable,
          :recoverable, :rememberable, :validatable, :confirmable
@@ -9,7 +11,7 @@ class User < ApplicationRecord
   delegate :max_items, to: :plan
 
   def plan
-    subscriptions.where(status: "ACTIVE").order(created_at: :desc).first.try(:plan) || Plan::FREE
+    subscriptions.where(status: 'ACTIVE').order(created_at: :desc).first.try(:plan) || Plan::FREE
   end
 
   def user_items_count

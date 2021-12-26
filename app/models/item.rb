@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Item < ApplicationRecord
   belongs_to :list
   has_one :user, through: :list
@@ -15,6 +17,6 @@ class Item < ApplicationRecord
   private
 
   def items_limit_not_reached
-    self.errors.add(:base, "max items reached for your plan") if user_items_count >= max_items
+    errors.add(:base, 'max items reached for your plan') if user_items_count >= max_items
   end
 end

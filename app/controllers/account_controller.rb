@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AccountController < ApplicationController
   before_action :authenticate_user!
 
@@ -15,7 +17,7 @@ class AccountController < ApplicationController
       amount: Money.new(plan.price, plan.currency)
     )
 
-    redirect_to edit_user_registration_url, notice: "Upgrade completed!"
+    redirect_to edit_user_registration_url, notice: 'Upgrade completed!'
   end
 
   def upgrade_params

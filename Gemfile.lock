@@ -90,6 +90,10 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
@@ -140,8 +144,8 @@ GEM
       ast
       ruby-ll (~> 2.1)
     orm_adapter (0.5.0)
-    parallel (1.20.1)
-    parser (3.0.0.0)
+    parallel (1.21.0)
+    parser (3.0.3.2)
       ast (~> 2.4.1)
     pg (1.2.3)
     pry (0.13.1)
@@ -192,11 +196,11 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    regexp_parser (2.1.1)
+    regexp_parser (2.2.0)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
-    rexml (3.2.4)
+    rexml (3.2.5)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -214,17 +218,17 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
-    rubocop (1.11.0)
+    rubocop (1.24.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml
-      rubocop-ast (>= 1.2.0, < 2.0)
+      rubocop-ast (>= 1.15.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.4.1)
-      parser (>= 2.7.1.5)
+    rubocop-ast (1.15.0)
+      parser (>= 3.0.1.1)
     rubocop-rails (2.9.1)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
@@ -263,8 +267,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (2.0.0)
-    video_info (3.0.1)
+    unicode-display_width (2.1.0)
+    video_info (3.0.2)
       iso8601 (~> 0.9.1)
       net_http_timeout_errors (~> 0.3.0)
       oga (~> 3.0)
@@ -299,6 +303,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise (~> 4.7, >= 4.7.3)
+  dotenv-rails
   factory_bot_rails (~> 6.1)
   faker (~> 2.17)
   jbuilder (~> 2.7)
@@ -323,7 +328,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 2.7.4p191
 
 BUNDLED WITH
    2.1.4

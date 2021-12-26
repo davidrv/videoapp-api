@@ -1,41 +1,44 @@
+# frozen_string_literal: true
+
 def next?
-  File.basename(__FILE__) == "Gemfile.next"
+  File.basename(__FILE__) == 'Gemfile.next'
 end
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '2.7.4'
 
-gem 'rails', '~> 6.1.3.1'
-gem 'pg', '~> 1.1'
-gem 'puma', '~> 5.0'
-gem 'sass-rails', '>= 6'
-gem 'webpacker', '~> 5.0'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.7'
+gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'jbuilder', '~> 2.7'
+gem 'money-rails', '~> 1.14'
+gem 'next_rails', '~> 1.0', '>= 1.0.4'
+gem 'pg', '~> 1.1'
+gem 'pry-byebug', '~> 3.9'
+gem 'puma', '~> 5.0'
+gem 'rails', '~> 6.1.3.1'
 gem 'rubocop', '~> 1.11'
 gem 'rubocop-rails', require: false
-gem 'money-rails', '~> 1.14'
-gem 'bootsnap', '>= 1.4.4', require: false
-gem 'pry-byebug', '~> 3.9'
+gem 'sass-rails', '>= 6'
+gem 'turbolinks', '~> 5'
 gem 'video_info', '~> 3.0', '>= 3.0.1'
-gem 'next_rails', '~> 1.0', '>= 1.0.4'
+gem 'webpacker', '~> 5.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'rspec-rails', '~> 5.0.0'
+  gem 'dotenv-rails'
   gem 'factory_bot_rails', '~> 6.1'
   gem 'faker', '~> 2.17'
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do
-  gem 'web-console', '>= 4.1.0'
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'spring'
+  gem 'web-console', '>= 4.1.0'
 end
 
 group :test do
@@ -43,4 +46,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-

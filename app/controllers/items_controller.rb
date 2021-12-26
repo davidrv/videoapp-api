@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ItemsController < ApplicationController
   before_action :set_list
-  before_action :set_item, only: %i[ show destroy ]
+  before_action :set_item, only: %i[show destroy]
 
   # GET /items or /items.json
   def index
@@ -8,8 +10,7 @@ class ItemsController < ApplicationController
   end
 
   # GET /items/1 or /items/1.json
-  def show
-  end
+  def show; end
 
   # GET /items/new
   def new
@@ -22,7 +23,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to list_items_url(@list), notice: "Item was successfully created." }
+        format.html { redirect_to list_items_url(@list), notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: list_items_url(@list) }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -35,7 +36,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to list_items_url(@list), notice: "Item was successfully destroyed." }
+      format.html { redirect_to list_items_url(@list), notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
