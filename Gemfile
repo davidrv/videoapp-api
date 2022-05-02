@@ -8,17 +8,17 @@ end
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.4'
+ruby '3.0.2'
 
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'devise'
 gem 'jbuilder', '~> 2.7'
 gem 'money-rails', '~> 1.14'
 gem 'next_rails', '~> 1.0', '>= 1.0.4'
 gem 'pg', '~> 1.1'
 gem 'pry-byebug', '~> 3.9'
 gem 'puma', '~> 5.0'
-gem 'rails', '~> 6.1.3.1'
+gem 'rails', '~> 7.0'
 gem 'rubocop', '~> 1.11'
 gem 'rubocop-rails', require: false
 gem 'sass-rails', '>= 6'
