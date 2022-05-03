@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      get ':list_id/videos' => 'videos#index'
+      get ':list_id/videos/:id' => 'videos#show'
+    end
+  end
+
   resources :lists, except: [:edit, :update] do
     resources :items, except: [:edit, :update]
   end
