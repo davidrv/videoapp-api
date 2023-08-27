@@ -19,7 +19,19 @@ RSpec.describe List, type: :model do
         end
       end
 
-      it { is_expected.to_not be_valid }
+      context 'when creating' do
+        it { is_expected.to_not be_valid }
+      end
+
+      context 'when updating' do
+        let(:updated_list) { user.lists.last }
+
+        before { updated_list.update(name: Faker::Space.nasa_space_craft) }
+
+        it 'expects list to be valid' do
+          expect(updated_list).to be_valid
+        end
+      end
     end
   end
 end

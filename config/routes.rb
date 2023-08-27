@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :lists, except: [:edit, :update] do
+  resources :lists do
     resources :items, except: [:edit, :update]
   end
 

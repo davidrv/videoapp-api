@@ -16,6 +16,8 @@ class List < ApplicationRecord
   private
 
   def list_limit_not_reached
+    return unless new_record?
+
     errors.add(:base, 'Max lists reached for your plan') if user.lists.count >= max_lists
   end
 end

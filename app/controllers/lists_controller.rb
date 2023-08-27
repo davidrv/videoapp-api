@@ -32,6 +32,26 @@ class ListsController < ApplicationController
     end
   end
 
+  # GET /lists/1/edit
+  def edit
+    @list = current_user.lists.find(params[:id])
+  end
+
+  # PATCH /lists/1
+  def update
+    @list = current_user.lists.find(params[:id])
+
+    respond_to do |format|
+      if @list.update(list_params)
+        format.html { redirect_to @list, notice: 'List was successfully updated.' }
+        format.json { render :show, status: :updated, location: @list }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @list.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /lists/1 or /lists/1.json
   def destroy
     @list.destroy
