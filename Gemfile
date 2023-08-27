@@ -8,30 +8,30 @@ end
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.2'
+ruby '3.2.2'
 
-gem 'bootsnap', '>= 1.4.4', require: false
+gem 'bootsnap', require: false
 gem 'devise'
+gem 'importmap-rails'
 gem 'jbuilder', '~> 2.7'
 gem 'money-rails', '~> 1.14'
 gem 'next_rails', '~> 1.0', '>= 1.0.4'
 gem 'pg', '~> 1.1'
-gem 'pry-byebug', '~> 3.9'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0'
 gem 'rubocop', '~> 1.11'
 gem 'rubocop-rails', require: false
-gem 'sass-rails', '>= 6'
-gem 'turbolinks', '~> 5'
+gem 'sprockets-rails'
+gem 'stimulus-rails'
+gem 'turbo-rails'
 gem 'video_info', '~> 3.0', '>= 3.0.1'
-gem 'webpacker', '~> 5.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   gem 'factory_bot_rails', '~> 6.1'
   gem 'faker', '~> 2.17'
-  gem 'rspec-rails', '~> 5.0.0'
+  gem 'rspec-rails', '~> 6.0.0'
 end
 
 group :development do
@@ -42,7 +42,10 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 3.26'
+  gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+# Use Redis for Action Cable
+gem "redis", "~> 4.0"

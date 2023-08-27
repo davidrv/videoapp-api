@@ -29,7 +29,7 @@
         <td><%= item.embed_url %></td>
         <td><%= item.author %></td>
         <td><%= link_to 'Show', list_item_path(@list, item) %></td>
-        <td><%= link_to 'Destroy', list_item_path(@list, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', list_item_path(@list, item), data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
