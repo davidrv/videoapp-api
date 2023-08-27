@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_02_081037) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_27_091120) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,6 +68,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_02_081037) do
     t.index ["video_id", "list_id"], name: "index_items_on_video_id_and_list_id", unique: true
   end
 
+  create_table "list_versions", force: :cascade do |t|
+    t.bigint "list_id", null: false
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["list_id"], name: "index_list_versions_on_list_id"
+  end
+
   create_table "lists", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id", null: false
@@ -117,6 +125,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_02_081037) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "items", "lists"
+  add_foreign_key "list_versions", "lists"
   add_foreign_key "lists", "users"
   add_foreign_key "subscriptions", "users"
 end

@@ -34,4 +34,12 @@ RSpec.describe List, type: :model do
       end
     end
   end
+
+  describe 'versions' do
+    subject(:list) { FactoryBot.create(:list) }
+
+    it 'expects to generate a new version item when the list is updated' do
+      expect { list.update!(name: Faker::Space.nasa_space_craft) }.to change { list.versions.count }.by(1)
+    end
+  end
 end
