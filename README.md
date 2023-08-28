@@ -1,24 +1,49 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This README document whatever steps are necessary to get the application up and running.
 
-Things you may want to cover:
+## Ruby version
 
-* Ruby version
+This app has been tested with ruby 3.2.2. You may want to use [rbenv](https://github.com/rbenv/rbenv) to install the right version or ruby:
 
-* System dependencies
+```
+$ rbenv install 3.2.2
+```
 
-* Configuration
+## System dependencies
 
-* Database creation
+In theroy, the latest version of Bundler has been already installed in your system with ruby.
 
-* Database initialization
+Just run:
+```
+$ bundle install
+```
 
-* How to run the test suite
+## Database creation
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ rails db:create
+```
 
-* Deployment instructions
+## Database initialization
 
-* ...
+```
+$ rails db:migrate
+```
+
+## Configuration
+No config needed. You will need to register a new user and create some Lists and Items by yourself once the app is up and running :)
+
+## Start the app
+
+```
+$ rails s
+```
+
+Once your server is running, just open [localhost:3000](http://localhost:3000) as usual. In the main page after registering and login you'll find some basic instructions about how to use the app.
+
+## How to run the test suite
+
+```
+$ bundle exec rspec
+```
