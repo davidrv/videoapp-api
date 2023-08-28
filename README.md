@@ -7,7 +7,7 @@ This README document the necessary steps to get the application up and running.
 This app has been tested with ruby 3.2.2. You may want to use [rbenv](https://github.com/rbenv/rbenv) to install the right version or ruby:
 
 ```
-$ rbenv install 3.2.2
+rbenv install 3.2.2
 ```
 
 ## System dependencies
@@ -16,19 +16,19 @@ In theroy, the latest version of Bundler has been already installed in your syst
 
 Just run:
 ```
-$ bundle install
+bundle install
 ```
 
 ## Database creation
 
 ```
-$ rails db:create
+rails db:create
 ```
 
 ## Database initialization
 
 ```
-$ rails db:migrate
+rails db:migrate
 ```
 
 ## Configuration
@@ -37,7 +37,7 @@ No config needed. You will need to register a new user and create some Lists and
 ## Start the app
 
 ```
-$ rails s
+rails s
 ```
 
 Once your server is running, just open [localhost:3000](http://localhost:3000) as usual. In the main page after registering and login you'll find some basic instructions about how to use the app.
@@ -45,5 +45,5 @@ Once your server is running, just open [localhost:3000](http://localhost:3000) a
 ## How to run the test suite
 
 ```
-$ bundle exec rspec
+bundle exec rspec
 ```
