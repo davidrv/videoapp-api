@@ -1,10 +1,26 @@
-<ul>
-  <li><%= link_to "Home", root_path %></li>
-  <% if user_signed_in? %>
-    <li><%= link_to('Edit registration', edit_user_registration_path) %> (<%= current_user.plan.name %>)</li>
-    <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
-  <% else %>
-    <li><%= link_to('Login', new_user_session_path) %></li>
-    <li><%= link_to('Register', new_user_registration_path)  %></li>
-  <% end %>
-</ul>
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+  <a href="<%= root_path %>" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+    <span class="fs-4">VideoApp</span>
+  </a>
+
+  <ul class="nav nav-pills">
+    <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to 'Edit registration', edit_user_registration_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Logout', destroy_user_session_path, data: { 'turbo-method': :delete }, class: "nav-link" %>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to 'Login', new_user_session_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Register', new_user_registration_path, class: "nav-link"  %>
+      </li>
+      <li class="nav-item">
+      </li>
+    <% end %>
+  </ul>
+</header>
