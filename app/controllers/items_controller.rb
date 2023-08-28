@@ -26,6 +26,8 @@ class ItemsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  rescue VideoInfo::UrlError
+    redirect_to new_list_item_url(@list), alert: 'Cannot extract video info from this URL'
   end
 
   # DELETE /items/1 or /items/1.json

@@ -7,8 +7,6 @@ module Items
     def initialize(list:, url:)
       @list  = list
       @url   = url
-
-      raise 'Video URL required' if url.blank?
     end
 
     def call
