@@ -22,6 +22,7 @@ gem 'rails', '~> 7.0'
 gem 'redis', '~> 4.0'
 gem 'rubocop', '~> 1.11'
 gem 'rubocop-rails', require: false
+gem 'simple_form'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
