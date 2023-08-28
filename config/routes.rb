@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'versions/index'
   namespace :api do
     namespace :v1 do
       get ':list_id/videos' => 'videos#index'
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :lists do
+    resources :versions, only: [:index]
     resources :items, except: [:edit, :update]
   end
 
