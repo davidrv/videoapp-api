@@ -1,4 +1,9 @@
 <%= simple_form_for list do |f| %>
+
+  <% if list.errors[:base].any? %>
+    <%= f.error :base, class: 'alert alert-danger' %>
+  <% end %>
+
   <%= f.input :name %>
   <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
