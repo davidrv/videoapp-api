@@ -21,24 +21,17 @@ class ItemsController < ApplicationController
   def create
     @item = Items::Build.new(list: @list, url: item_params[:url]).call
 
-    respond_to do |format|
-      if @item.save
-        format.html { redirect_to list_items_url(@list), notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: list_items_url(@list) }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
+    if @item.save
+      redirect_to list_items_url(@list), notice: 'Item was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # DELETE /items/1 or /items/1.json
   def destroy
     @item.destroy
-    respond_to do |format|
-      format.html { redirect_to list_items_url(@list), notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to list_items_url(@list), notice: 'Item was successfully destroyed.'
   end
 
   private

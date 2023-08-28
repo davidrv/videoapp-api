@@ -9,9 +9,6 @@ class ListsController < ApplicationController
     @lists = current_user.lists.all
   end
 
-  # GET /lists/1 or /lists/1.json
-  def show; end
-
   # GET /lists/new
   def new
     @list = current_user.lists.new
@@ -21,14 +18,10 @@ class ListsController < ApplicationController
   def create
     @list = current_user.lists.new(list_params)
 
-    respond_to do |format|
-      if @list.save
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
-        format.json { render :show, status: :created, location: @list }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
+    if @list.save
+      redirect_to @list, notice: 'List was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -41,24 +34,17 @@ class ListsController < ApplicationController
   def update
     @list = current_user.lists.find(params[:id])
 
-    respond_to do |format|
-      if @list.update(list_params)
-        format.html { redirect_to @list, notice: 'List was successfully updated.' }
-        format.json { render :show, status: :updated, location: @list }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
+    if @list.update(list_params)
+      redirect_to list_items_url(@list), notice: 'List was successfully updated.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # DELETE /lists/1 or /lists/1.json
   def destroy
     @list.destroy
-    respond_to do |format|
-      format.html { redirect_to root_url, notice: 'List was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to root_url, notice: 'List was successfully destroyed.'
   end
 
   private

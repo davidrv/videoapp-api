@@ -3,6 +3,7 @@
 <%= link_to "New List", new_list_path %>
 <ul>
   <% current_user.lists.each do |list| %>
-    <li><%= link_to list.name, list %></li>
+    <% next unless list.persisted? %>
+    <li><%= link_to list.name, list_items_path(list) %></li>
   <% end %>
 </ul>
