@@ -1,6 +1,6 @@
 # README
 
-This README document whatever steps are necessary to get the application up and running.
+This README document the necessary steps to get the application up and running.
 
 ## Ruby version
 
