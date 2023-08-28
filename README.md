@@ -47,3 +47,7 @@ Once your server is running, just open [localhost:3000](http://localhost:3000) a
 ```
 bundle exec rspec
 ```
+
+## Extra
+
+I've deployed a test version of the app [here](https://davidrv-videoapp-2ab25611653d.herokuapp.com/). At least, in case you cannot setup your local env to play with it, you'll be able to use it live.
