@@ -37,9 +37,11 @@ module Items
         thumbnail_large: video.thumbnail_large,
         embed_url: video.embed_url,
         embed_code: video.embed_code,
-        author: video.author,
-        author_thumbnail: video.author_thumbnail,
-        author_url: video.author_url,
+        # TODO: Investigate why the gem is not being able to parse some info
+        # `convert_to_uri': bad argument (expected URI object or URI string) (ArgumentError)
+        # author: video.author,
+        # author_thumbnail: video.author_thumbnail,
+        # author_url: video.author_url,
         keywords: video.keywords
       }
     end
