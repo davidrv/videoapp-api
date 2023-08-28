@@ -26,7 +26,7 @@ gem 'simple_form'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
-gem 'video_info', '~> 3.0', '>= 3.0.1'
+gem 'video_info', '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
