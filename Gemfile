@@ -19,6 +19,7 @@ gem 'next_rails', '~> 1.0', '>= 1.0.4'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0'
+gem 'redis', '~> 4.0'
 gem 'rubocop', '~> 1.11'
 gem 'rubocop-rails', require: false
 gem 'sprockets-rails'
@@ -46,6 +47,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-# Use Redis for Action Cable
-gem "redis", "~> 4.0"
