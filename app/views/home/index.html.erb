@@ -1,2 +1,32 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Welcome!</h1>
+<p>This project is meant to create video playlists for your kids.</p>
+
+<p>The idea is that you can create a different number of lists based on your subscription plan.</p>
+<ul>
+    <li>3 for the free plan with a maximum of 15 videos</li>
+    <li>10 for the free plan with a maximum of 1.000 videos</li>
+    <li>9.999 for the free plan with a maximum of 999.999 videos</li>
+</ul>
+
+<p><b>So:</b></p>
+
+<ul>
+    <li>You can create a new list with the New List button in the sidebar. Just choose a name and save it.</li>
+    <li>You can create new items (videos) from the List details page with the New Item button.</li>
+        <ul>
+            <li>Just paste a YouTube video URL in the form's New item URL input field to create a new item. Example: https://www.youtube.com/watch?v=mny1kAxF2zQ</li>
+            <li>It will automatically extract the video info and store it in the database.</li>
+        </ul>
+</ul>
+
+<p><b>Extra:</b></p>
+<ul>
+<li>Every time you edit the name of a List, a new ListVersion entry will be generated. You can see all the List versions from the versions page. Click on the History button on the List details page.</li>
+<li>You can update your Subscription plan from the Edit Registration page in the header. Hurry up! It’s free for now ;)</li>
+</ul>
+<p><b>Next steps:</b></p>
+<ul>
+    <li>The idea is to build an API later. So, all these lists are available from mobile native apps, and you can limit and supervise what your kids are watching!</li>
+        <ul><li>A couple of Fake endpoints were added a long time ago. Just to start building the native mobile apps. Don’t look at them, please 🙈</li></ul>
+    <li>System tests. The UI is not tested at all. Some work to do there 🥶</li>
+</ul>
