@@ -1,4 +1,4 @@
-<h1><%= @list.name %></h1>
+<h1><%= @list.name %> items</h1>
 
 <table class='table table-striped align-middle'>
   <tbody>
@@ -15,8 +15,6 @@
 
 <br>
 
+<%= link_to 'Back', lists_path, class: "btn btn-secondary"  %>
 <%= link_to 'New Item', new_list_item_path(@list), class: "btn btn-primary" %>
-<%= link_to 'History', list_versions_path(@list), class: "btn btn-primary" %>
-<%= link_to 'Edit', edit_list_path(@list), class: "btn btn-secondary"  %>
-<%= link_to 'Delete', @list, data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }, class: "btn btn-secondary" %>
 

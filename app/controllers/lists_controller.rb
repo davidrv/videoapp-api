@@ -19,7 +19,7 @@ class ListsController < ApplicationController
     @list = current_user.lists.new(list_params)
 
     if @list.save
-      redirect_to @list, notice: 'List was successfully created.'
+      redirect_to lists_url, notice: 'List was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class ListsController < ApplicationController
     @list = current_user.lists.find(params[:id])
 
     if @list.update(list_params)
-      redirect_to list_items_url(@list), notice: 'List was successfully updated.'
+      redirect_to lists_url, notice: 'List was successfully updated.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -44,7 +44,7 @@ class ListsController < ApplicationController
   # DELETE /lists/1 or /lists/1.json
   def destroy
     @list.destroy
-    redirect_to root_url, notice: 'List was successfully destroyed.'
+    redirect_to lists_url, notice: 'List was successfully destroyed.'
   end
 
   private
