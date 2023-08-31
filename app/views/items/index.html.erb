@@ -6,6 +6,7 @@
       <tr>
         <td><%= image_tag item.thumbnail_small %></td>
         <td><%= item.title %></td>
+        <td><%= pluralize(item.views_count, 'view', 'views') %></td>
         <td><%= link_to 'Show', list_item_path(@list, item) %></td>
         <td><%= link_to 'Destroy', list_item_path(@list, item), data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %></td>
       </tr>
@@ -17,4 +18,3 @@
 
 <%= link_to 'Back', lists_path, class: "btn btn-secondary"  %>
 <%= link_to 'New Item', new_list_item_path(@list), class: "btn btn-primary" %>
-

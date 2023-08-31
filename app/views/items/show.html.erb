@@ -1,10 +1,10 @@
-<p id="notice"><%= notice %></p>
+<h2>Views</h2>
 
-<p>
-  <strong>List:</strong>
-  <%= @item.list_id %>
-</p>
+<%= line_chart @item.item_views.group("DATE_TRUNC('day', time)")
+                    .select("DATE_TRUNC('day', time) AS day, COUNT(*) AS total_views")
+                    .order("day").map { |i| [i.day, i.total_views] } %>
 
+<h2>RAW data</h2>
 <p>
   <strong>Available:</strong>
   <%= @item.available %>
