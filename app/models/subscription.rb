@@ -11,6 +11,7 @@ class Subscription < ApplicationRecord
   validates :amount_currency, presence: true
 
   before_validation :set_default_values, on: :create
+  validate :respect_maxes
 
   monetize :amount_cents
 
@@ -30,5 +31,10 @@ class Subscription < ApplicationRecord
     return unless plan
 
     self.amount = Money.new(plan.price, plan.currency)
+  end
+
+  def respect_maxes
+    errors.add(:base, 'Max lists reached for your plan') if user.lists.count >= plan.max_lists
+    errors.add(:base, 'Max items reached for your plan') if user.user_items_count >= plan.max_items
   end
 end

@@ -31,6 +31,8 @@
 <br />
 <h3>Update your plan</h3>
 <%= simple_form_for(:plan, url: upgrade_account_path) do |f| %>
+  <%= f.error_notification %>
+
   <%= f.input :id, label: 'Plan', as: :select, collection: Plan.all.map { |p| [p.name, p.id] }, selected: current_user.plan.id %>
   <%= f.submit "Update", class: "btn btn-primary" %>
 <% end %>
