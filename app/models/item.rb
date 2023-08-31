@@ -3,6 +3,7 @@
 class Item < ApplicationRecord
   belongs_to :list
   has_one :user, through: :list
+  has_many :item_views, dependent: :delete_all
 
   validates :url, presence: true, uniqueness: { scope: :list }
   validates :video_id, presence: true, uniqueness: { scope: :list }
